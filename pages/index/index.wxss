@@ -1,0 +1,24 @@
+/**index.wxss**/
+
+/* TODO: add style of the list item */
+
+/**toDo list**/
+.toDo-list {
+
+}
+.toDo-item{
+
+}
+.toDo-title{
+
+}
+.btn-done{
+
+}
+.btn-delete{
+
+}
+
+.usermotto {
+  margin-top: 200px;
+}

@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/addNew/addNew",
+    "pages/done/done",
+    "pages/calendar/calendar"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "就是日历",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "color":"#2c2c2c",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "TO DO",
+        "iconPath": "images/toDo.png",
+        "selectedIconPath": "images/toDo_press.png"
+      },
+      {
+        "pagePath": "pages/addNew/addNew",
+        "text": "ADD NEW",
+        "iconPath": "images/addNew.png",
+        "selectedIconPath": "images/addNew_press.png"
+      },
+      {
+        "pagePath": "pages/done/done",
+        "text": "DONE",
+        "iconPath": "images/done.png",
+        "selectedIconPath": "images/done_press.png"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "CALENDAR",
+        "iconPath": "images/calendar.png",
+        "selectedIconPath": "images/calendar_press.png"
+      }
+    ]
+  }
+}

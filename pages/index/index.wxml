@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="toDo-list">
+  <view class="toDo-item">
+    <view class="toDo-title">toDoTitle1</view>
+    <text selectable='true'>toDoDescription</text>
+    <view class="toDo-footer">
+    <button class="btn-done" bindtap="done">Done</button>
+    <button class="btn-delete" bindtap="deleteItem">Delete</button>
+    </view>
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
