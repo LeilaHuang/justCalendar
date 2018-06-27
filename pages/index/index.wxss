@@ -1,22 +1,43 @@
 /**index.wxss**/
 
-/* TODO: add style of the list item */
-
 /**toDo list**/
+
 .toDo-list {
-
+  background-color: #fc9;
 }
-.toDo-item{
 
+.toDo-item {
+  overflow: hidden;
+  padding: 30rpx;
 }
-.toDo-title{
 
+.toDo-title {
+  /* color: blue; */
+  font-size: 50rpx;
+  line-height: 1;
 }
-.btn-done{
 
+.toDo-time {
+  /* float: right; */
+  font-family: Courier New, Courier, monospace;
+  font-size: 34rpx;
 }
-.btn-delete{
 
+.toDo-descrip {
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
+
+.btn-done {
+  overflow: hidden;
+  margin-left: 200rpx;
+  background-color: #9cc;
+}
+
+.btn-delete {
+  float: left;
+  background-color: #ffebcc;
 }
 
 .usermotto {

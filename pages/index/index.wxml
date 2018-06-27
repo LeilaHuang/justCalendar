@@ -1,11 +1,13 @@
 <!--index.wxml-->
 <view class="toDo-list">
+  <!-- listOne -->
   <view class="toDo-item">
-    <view class="toDo-title">toDoTitle1</view>
-    <text selectable='true'>toDoDescription</text>
+    <view class="toDo-time">2018/02/28/18:00</view>
+    <view class="toDo-title">toDoTitle1ffffffffffffaksjlfl</view>
+    <text class="toDo-descrip" selectable='true'>toDoDescription</text>
     <view class="toDo-footer">
-    <button class="btn-done" bindtap="done">Done</button>
-    <button class="btn-delete" bindtap="deleteItem">Delete</button>
+      <button class="btn-delete" bindtap="deleteItem">Delete</button>
+      <button class="btn-done" bindtap="done">Done</button>
     </view>
   </view>
 
