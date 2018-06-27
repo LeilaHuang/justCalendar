@@ -1,0 +1,37 @@
+/* done.wxss */
+
+.done-list {
+  background-color: #9dcee8;
+}
+
+.done-item {
+  overflow: hidden;
+  padding: 30rpx;
+}
+
+.done-time {
+  font-family: Courier New, Courier, monospace;
+  font-size: 34rpx;
+  line-height: 1;
+}
+
+.done-body {
+  margin-left: 200rpx;
+}
+
+.done-title {
+  font-size: 50rpx;
+  line-height: 1;
+}
+
+.done-descrip {
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
+
+.done-image {
+  float: left;
+  width: 160rpx;
+  height: 150rpx;
+}

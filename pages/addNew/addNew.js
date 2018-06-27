@@ -12,5 +12,5 @@ Page({
 
   onLoad: function () {
   }
-
+  
 })

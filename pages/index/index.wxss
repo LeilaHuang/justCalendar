@@ -3,7 +3,7 @@
 /**toDo list**/
 
 .toDo-list {
-  background-color: #fc9;
+  background-color: #ffe0d6;
 }
 
 .toDo-item {
@@ -29,16 +29,21 @@
   line-height: 1.2;
 }
 
-.btn-done {
+/* .btn-done {
   overflow: hidden;
   margin-left: 200rpx;
   background-color: #9cc;
+} */
+
+.switch-done{
+  overflow: hidden;
+  float: right;
 }
 
-.btn-delete {
+/* .btn-delete {
   float: left;
   background-color: #ffebcc;
-}
+} */
 
 .usermotto {
   margin-top: 200px;

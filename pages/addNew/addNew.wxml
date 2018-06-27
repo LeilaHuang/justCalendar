@@ -1,0 +1,16 @@
+<!--addNew.wxml-->
+<view class="addNew-list">
+  <view class="addNew-body">
+    <!-- for later
+    1.  click to choose time 
+    2.  functions
+    3.  maybe change style -->
+    <view class="addNew-time">2018/02/28/18:00</view>
+    <input class="addNew-title" placeholder="title">Title</input>
+    <input class="addNew-descrip" placeholder="toDoDescription">toDoDescription</input>
+  </view>
+  <view class="addNewFooter">
+    <button class="btn-cancel" bindtap="done">CANCEL</button>
+    <button class="btn-create" bindtap="deleteItem">CREATE</button>
+  </view>
+</view>

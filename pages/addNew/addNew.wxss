@@ -1,0 +1,39 @@
+/* addNew.wxss */
+
+.addNew-list {
+  background-color: #f9f5ca;
+  padding: 30rpx;
+}
+
+.addNew-time {
+  font-family: Courier New, Courier, monospace;
+  font-size: 34rpx;
+  line-height: 1;
+  float: right;
+}
+
+.addNew-body {
+
+}
+
+.addNew-title {
+  font-size: 50rpx;
+  line-height: 1;
+}
+
+.addNew-descrip {
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
+
+.btn-create{
+  overflow: hidden;
+  margin-right: 5rpx;
+  background-color: #9cc;
+}
+
+.btn-cancel{
+  float: left;
+  background-color: #ffebcc;
+}

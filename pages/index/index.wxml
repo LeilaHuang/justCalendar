@@ -4,13 +4,16 @@
   <view class="toDo-item">
     <view class="toDo-time">2018/02/28/18:00</view>
     <view class="toDo-title">toDoTitle1ffffffffffffaksjlfl</view>
+    <!-- for later: 
+    1. click see detail
+    2. button functions
+    3. maybe change layout -->
     <text class="toDo-descrip" selectable='true'>toDoDescription</text>
     <view class="toDo-footer">
-      <button class="btn-delete" bindtap="deleteItem">Delete</button>
-      <button class="btn-done" bindtap="done">Done</button>
+      <!-- <button class="btn-delete" bindtap="deleteItem">DELETE</button> -->
+      <switch class="switch-done"checked="{{switch1Checked}}" bindchange="switch1Change"/>
     </view>
   </view>
-
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
