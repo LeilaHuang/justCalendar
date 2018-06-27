@@ -18,13 +18,13 @@
 
 .addNew-title {
   font-size: 50rpx;
-  line-height: 1;
+  line-height: 2;
 }
 
 .addNew-descrip {
-  font-size: 34rpx;
+  font-size: 35rpx;
   color: #212121;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 .btn-create{
