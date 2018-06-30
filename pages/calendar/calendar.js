@@ -11,6 +11,10 @@ Page({
   },
  
   onLoad: function () {
+  },
+  
+  dayClick: function (event) {
+    console.log(event.detail);
   }
 
 })
