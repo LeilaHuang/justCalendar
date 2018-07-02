@@ -7,3 +7,28 @@
     font-size: large; /*修改了标题文字和按钮的大小*/
     color: #605eac;   /*修改了标题文字和按钮的颜色*/
 }
+
+.dayToDo-list{
+  background-color: #C4BBCF;
+}
+
+.dayToDo-item{
+  overflow: hidden;
+  padding: 30rpx;
+}
+
+.dayToDo-time{
+  font-family: Courier New, Courier, monospace;
+  font-size: 34rpx;
+}
+
+.dayToDo-title{
+  font-size: 50rpx;
+  line-height: 1;
+}
+
+.dayToDo-descrip{
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
