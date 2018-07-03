@@ -1,17 +1,17 @@
 <!--index.wxml-->
 <view class="toDo-list">
   <!-- listOne -->
-  <view class="toDo-item">
+  <view class="toDo-item" style='background-color:{{isFinished}}'>
     <view class="toDo-time">2018/02/28/18:00</view>
-    <view class="toDo-title">toDoTitle1ffffffffffffaksjlfl</view>
+    <view class="toDo-title" name="toDo_title" style='text-decoration:{{isLineThroued}}'>toDoTitle1ffffffffffffaksjlfl</view>
     <!-- for later: 
     1. click see detail
     2. button functions
     3. maybe change layout -->
-    <text class="toDo-descrip" selectable='true'>toDoDescription</text>
+    <text class="toDo-descrip" style='text-decoration:{{isLineThroued}}'>toDoDescription</text>
     <view class="toDo-footer">
       <!-- <button class="btn-delete" bindtap="deleteItem">DELETE</button> -->
-      <switch class="switch-done"checked="{{switch1Checked}}" bindchange="switch1Change"/>
+      <switch class="switch-done" checked="{{switchChecked}}" bindchange="switchChange"/>
     </view>
   </view>
   <!-- <view class="usermotto">

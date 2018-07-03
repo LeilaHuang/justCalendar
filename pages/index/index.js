@@ -7,19 +7,23 @@ Page({
     // motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    switchChecked:false,
   },
-  done: function(e) {
-    extraLine.push('other line')
-    this.setData({
-      text: initData + '\n' + extraLine.join('\n')
-    })
-  },
-  deleteItem: function(e) {
-    extraLine.push('other line')
-    this.setData({
-      text: initData + '\n' + extraLine.join('\n')
-    })
+  switchChange:function(e){
+    if (e.detail.value === false){
+      console.log("hhh")
+      this.setData({
+        isLineThroued: '',
+        isFinished: '#ffe0d6'
+      })
+    }
+    else{
+      this.setData({
+        isLineThroued : 'line-through',
+        isFinished:'#f6f6f6'
+      })
+    }
   },
   onLoad: function() {}
 })

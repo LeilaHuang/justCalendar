@@ -15,6 +15,7 @@
   /* color: blue; */
   font-size: 50rpx;
   line-height: 1;
+   
 }
 
 .toDo-time {

@@ -31,6 +31,7 @@
   overflow: hidden;
   margin-right: 5rpx;
   background-color: #9cc;
+  width: 390rpx;
 }
 
 .btn-cancel{
