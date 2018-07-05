@@ -10,20 +10,20 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    title:"",
-    descripition:""
+    title: "",
+    descripition: ""
   },
-  titleInputEvent: function (e) {
+  titleInputEvent: function(e) {
     this.setData({
       title: e.detail.value
     })
   },
-  desInputEvent: function (e) {
+  desInputEvent: function(e) {
     this.setData({
       descripition: e.detail.value
     })
   },
-  submitMission: function (e) {
+  submitMission: function(e) {
     const query = Bmob.Query('missionTable');
     query.set("title", this.data.title)
     query.set("descripition", this.data.descripition)
@@ -35,7 +35,6 @@ Page({
     })
   },
 
-  onLoad: function () {
-  }
-  
+  onLoad: function() {}
+
 })

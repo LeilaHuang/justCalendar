@@ -1,19 +1,19 @@
 <!--addNew.wxml-->
-    <!-- for later
+<!-- for later
     1.  click to choose time 
     2.  functions // almost done (database connected)
     3.  maybe change style 
     4.  auto /n -->
 <view class="addNew-list">
   <form bindsubmit="submitMission">
-  <view class="addNew-body">
-    <view class="addNew-time">2018/02/28/18:00</view>
-    <input class="addNew-title" placeholder="title" name = "new_title" bindblur="titleInputEvent">Title</input>
-    <input class="addNew-descrip" placeholder="toDoDescription" name = "new_description" bindblur="desInputEvent"></input>
-  </view>
-  <view class="addNewFooter">
-    <button class="btn-cancel" bindtap="done">CANCEL</button>
-    <button class="btn-create" formType="submit">CREATE</button>
-  </view>
+    <view class="addNew-body">
+      <view class="addNew-time">2018/02/28/18:00</view>
+      <input class="addNew-title" placeholder="title" name="new_title" bindblur="titleInputEvent">Title</input>
+      <input class="addNew-descrip" placeholder="toDoDescription" name="new_description" bindblur="desInputEvent"></input>
+    </view>
+    <view class="addNewFooter">
+      <button class="btn-cancel" bindtap="done">CANCEL</button>
+      <button class="btn-create" formType="submit">CREATE</button>
+    </view>
   </form>
 </view>

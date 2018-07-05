@@ -1,4 +1,4 @@
-//index.js - toDo
+//iƒndex.js - toDo
 //获取应用实例
 const app = getApp()
 var Bmob = require('../../SDK/hydrogen-js-sdk/src/lib/app.js');
@@ -10,21 +10,20 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    switchChecked:false,
-    res:[]
+    switchChecked: false,
+    res: []
   },
-  switchChange:function(e){
-    if (e.detail.value === false){
+  switchChange: function(e) {
+    if (e.detail.value === false) {
       console.log("hhh")
       this.setData({
         isLineThroued: '',
         isFinished: '#ffe0d6'
       })
-    }
-    else{
+    } else {
       this.setData({
-        isLineThroued : 'line-through',
-        isFinished:'#f6f6f6'
+        isLineThroued: 'line-through',
+        isFinished: '#f6f6f6'
       })
     }
   },
