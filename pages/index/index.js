@@ -14,26 +14,45 @@ Page({
     res: []
   },
   switchChange: function(e) {
+    var id = e.target.id
+    console.log(id)
     if (e.detail.value === false) {
-      console.log("hhh")
+      this.editMissionStatus(id, false)
       this.setData({
         isLineThroued: '',
         isFinished: '#ffe0d6'
       })
     } else {
+      this.editMissionStatus(id,true)
       this.setData({
         isLineThroued: 'line-through',
         isFinished: '#f6f6f6'
       })
     }
   },
-  onLoad: function() {
+  onShow: function(e) {
+    this.refreshPage()
+  },
+  onLoad: function(e) {
+    this.refreshPage()
+  },
+  refreshPage:function(){
     const query = Bmob.Query("missionTable");
     query.find().then(res => {
-      console.log(res[0])
+      console.log(res.length)
       this.setData({
-        res: res
+        res: res.reverse()
       })
     });
+  },
+  editMissionStatus: function (id, status){
+    const query = Bmob.Query('missionTable');
+    query.get(id).then(res => {
+      console.log(res)
+      res.set('status', status)
+      res.save()
+    }).catch(err => {
+      console.log(err)
+    })
   }
 })

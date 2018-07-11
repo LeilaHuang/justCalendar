@@ -6,12 +6,12 @@
 <view class="toDo-list">
   <!-- listOne -->
   <view class="toDo-item" style='background-color:{{isFinished}}' wx:for="{{res}}" wx:for-item="itemName">
-    <view class="toDo-time">2018/02/28/18:00</view>
+    <view class="toDo-time">{{itemName.time}}</view>
     <view class="toDo-title" name="toDo_title" style='text-decoration:{{isLineThroued}}'>{{itemName.title}}</view>
     <text class="toDo-descrip" style='text-decoration:{{isLineThroued}}'>{{itemName.descripition}}</text>
     <view class="toDo-footer">
       <!-- <button class="btn-delete" bindtap="deleteItem">DELETE</button> -->
-      <switch class="switch-done" checked="{{switchChecked}}" bindchange="switchChange" />
+      <switch class="switch-done" checked="{{itemName.status}}" bindchange="switchChange" id = "{{itemName.objectId}}"/>
     </view>
   </view>
   <!-- <view class="usermotto">
