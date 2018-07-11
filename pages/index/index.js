@@ -11,44 +11,52 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     switchChecked: false,
-    res: []
+    res: [],
+    isChecked : []
   },
   switchChange: function(e) {
+    var isCheckedList = this.data.isChecked
+    var idx = e.target.dataset.id
     var id = e.target.id
-    console.log(id)
-    if (e.detail.value === false) {
-      this.editMissionStatus(id, false)
-      this.setData({
-        isLineThroued: '',
-        isFinished: '#ffe0d6'
-      })
-    } else {
-      this.editMissionStatus(id,true)
-      this.setData({
-        isLineThroued: 'line-through',
-        isFinished: '#f6f6f6'
-      })
-    }
+    var status = e.detail.value
+    //console.log(status)
+    //console.log(id)
+    // this.setData({
+      
+    // })
+    isCheckedList[idx] = e.detail.value
+    this.setData({
+      isChecked: isCheckedList,
+      userCellId : id
+    })
+    this.editMissionStatus(id, status)
   },
   onShow: function(e) {
     this.refreshPage()
   },
-  onLoad: function(e) {
-    this.refreshPage()
-  },
+  // onLoad: function(e) {
+  //   this.refreshPage()
+  // },
   refreshPage:function(){
+    var isCheckedList = []
+    var tmp_res = []
     const query = Bmob.Query("missionTable");
     query.find().then(res => {
-      console.log(res.length)
+      tmp_res = res.reverse()
+      for (var i = 0; i < res.length;i++){
+        isCheckedList[i] = tmp_res[i]['status']
+        console.log(isCheckedList[i])
+        }
       this.setData({
-        res: res.reverse()
+        res: tmp_res,
+        isChecked:isCheckedList
       })
     });
   },
   editMissionStatus: function (id, status){
     const query = Bmob.Query('missionTable');
     query.get(id).then(res => {
-      console.log(res)
+      //console.log(res)
       res.set('status', status)
       res.save()
     }).catch(err => {

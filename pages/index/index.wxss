@@ -6,17 +6,16 @@
   background-color: #ffe0d6;
 }
 
-.toDo-item {
+/* .toDo-item {
   overflow: hidden;
   padding: 30rpx;
-}
+} */
 
-.toDo-title {
-  /* color: blue; */
+/* .toDo-title {
+   color: blue; 
   font-size: 50rpx;
   line-height: 1;
-   
-}
+} */
 
 .toDo-time {
   /* float: right; */
@@ -45,7 +44,40 @@
   float: left;
   background-color: #ffebcc;
 } */
+.haveLineThroughTitle{
+  background-color: '#f6f6f6';
+  text-decoration: line-through;
+  font-size: 50rpx;
+  line-height: 1;
+}
+.noLineThroughTitle{
+  background-color: '#ffe0d6';
+  text-decoration: ''; 
+  font-size: 50rpx;
+  line-height: 1;
+}
+.haveLineThrough{
+  background-color: '#f6f6f6';
+  text-decoration: line-through;
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
+.noLineThrough{
+  background-color: '#ffe0d6';
+  text-decoration: ''; 
+  font-size: 34rpx;
+  color: #212121;
+  line-height: 1.2;
+}
 
-.usermotto {
-  margin-top: 200px;
+.userCellActive{
+  background-color: gray;
+  overflow: hidden;
+  padding: 30rpx;
+}
+
+.userCell{
+  overflow: hidden;
+  padding: 30rpx;
 }

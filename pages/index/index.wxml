@@ -3,18 +3,14 @@
   1. click see detail
   2. button functions
   3. maybe change layout -->
-<view class="toDo-list">
+<view class="toDo-list" wx:for="{{res}}" wx:for-item="itemName" wx:for-index="idx">
   <!-- listOne -->
-  <view class="toDo-item" style='background-color:{{isFinished}}' wx:for="{{res}}" wx:for-item="itemName">
+  <view class="{{isChecked[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}" > 
     <view class="toDo-time">{{itemName.time}}</view>
-    <view class="toDo-title" name="toDo_title" style='text-decoration:{{isLineThroued}}'>{{itemName.title}}</view>
-    <text class="toDo-descrip" style='text-decoration:{{isLineThroued}}'>{{itemName.descripition}}</text>
+    <view class="{{isChecked[idx]?'haveLineThroughTitle':'noLineThroughTitle'}}">{{itemName.title}}</view>
+    <text class="{{isChecked[idx]?'haveLineThrough':'noLineThrough'}}">{{itemName.descripition}}</text>
     <view class="toDo-footer">
-      <!-- <button class="btn-delete" bindtap="deleteItem">DELETE</button> -->
-      <switch class="switch-done" checked="{{itemName.status}}" bindchange="switchChange" id = "{{itemName.objectId}}"/>
+      <switch class="switch-done" checked="{{itemName.status}}" bindchange="switchChange" id = "{{itemName.objectId}}" data-id = "{{idx}}" color = "#1296db" />
     </view>
   </view>
-  <!-- <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
 </view>
