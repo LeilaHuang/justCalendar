@@ -1,12 +1,12 @@
 <!--done.wxml-->
 <view class="done-list">
   <!-- listOne -->
-  <view class="done-item">
+  <view class="done-item" wx:for="{{res}}" wx:for-item="doneItem">
     <image class="done-image" src="/images/done_icon.png" />
     <view class="done-body">
-      <view class="done-title">DoneTitle</view>
-      <text class="done-descrip" selectable='true'>toDoDescription</text>
-      <view class="done-time">2018/02/28/18:00</view>
+      <view class="done-title">{{doneItem.title}}</view>
+      <text class="done-descrip" selectable='true'>{{doneItem.description}}</text>
+      <view class="done-time">{{doneItem.time}}</view>
       <!-- for later -->
       <!-- 1. click to see detail -->
       <!-- 2. button to delete -->
