@@ -1,6 +1,7 @@
 <!-- for later -->
 <!-- 1. click to see detail -->
 <!-- 2. button to delete -->
+<!-- 3. change layout add margin -->
 
 <!--done.wxml-->
 <view class="done-list">
@@ -10,7 +11,7 @@
     <view class="done-body">
       <view class="done-title">{{doneItem.title}}</view>
       <text class="done-descrip" selectable='true'>{{doneItem.description}}</text>
-      <view class="done-time">{{doneItem.time}}</view>
+      <view class="done-time">{{doneItem.dueTime}}</view>
     </view>
   </view>
 </view>

@@ -1,11 +1,21 @@
 <!--addNew.wxml-->
-<!-- for later
-    1.  click to choose time 
-    2.  functions // almost done (database connected)
-    3.  maybe change style 
-    4.  auto /n -->
+<!-- TODO
+    # maybe change style 
+    # auto /n -->
 <view class="addNew-list">
   <form bindsubmit="submitMission">
+   <!-- 日期部分 -->
+    <view class="item">
+      <picker mode="date" value="{{dateValue}}" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange">
+        DUE DATE: {{dateValue}}
+      </picker>
+    </view>
+    <!-- 时间部分 -->
+    <view class="item">
+      <picker mode="time" value="{{timeValue}}" start="00:00" end="24:00" bindchange="timePickerBindchange">
+        DUE TIME: {{timeValue}}
+      </picker>
+    </view>
     <view class="addNew-body">
       <view class="addNew-time">{{time}}</view>
       <input class="addNew-title" placeholder="title" name="new_title" bindblur="titleInputEvent" value='{{titleInput}}'></input>
@@ -15,5 +25,12 @@
       <button class="btn-cancel" bindtap="done">CANCEL</button>
       <button class="btn-create" formType="submit">CREATE</button>
     </view>
+   
   </form>
+
+
+
+
+
+
 </view>

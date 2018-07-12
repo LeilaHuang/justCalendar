@@ -15,12 +15,14 @@
 .addNew-title {
   font-size: 50rpx;
   line-height: 2;
+  margin: 20rpx 10rpx 25rpx 10rpx
 }
 
 .addNew-descrip {
   font-size: 35rpx;
   color: #212121;
   line-height: 2;
+  margin: 20rpx 10rpx 120rpx 10rpx
 }
 
 .btn-create{
@@ -32,5 +34,6 @@
 
 .btn-cancel{
   float: left;
+  margin: 0rpx 20rpx;
   background-color: #ffebcc;
 }

@@ -55,7 +55,7 @@ Page({
       })
     });
   },
-  /** Motify the 'status' data according to the switch status and object ID **/
+  /** Modify the 'status' data according to the switch status and object ID **/
   editMissionStatus: function(id, status) {
     const query = Bmob.Query('missionTable');
     query.get(id).then(res => {

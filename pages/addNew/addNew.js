@@ -15,7 +15,9 @@ Page({
     title: "",
     descripition: "",
     titleInput: "",
-    descripInput: ""
+    descripInput: "",
+    dateValue: 'click to choose due date',
+    timeValue: 'due time'
   },
   // Get title input value
   titleInputEvent: function(e) {
@@ -29,29 +31,42 @@ Page({
       descripition: e.detail.value
     })
   },
-
   submitMission: function(e) {
     // Get System Time
     var time = util.formatTime(new Date());
-    this.setData({
-      titleInput: '',
-      descripInput: '',
-    })
     const query = Bmob.Query('missionTable');
-    //Save a mission
+    // Save a mission
+    // when compare use new Date(dueTime)
+    var dueTime = this.data.dateValue + " " + this.data.timeValue
     query.set("title", this.data.title)
     query.set("descripition", this.data.descripition)
     query.set("status", false)
     query.set("time", time)
+    query.set("dueTime", dueTime)
+    console.log(dueTime)
     query.save().then(res => {
       console.log(res)
     }).catch(err => {
       console.log(err)
     })
+    this.setData({
+      titleInput: '',
+      descripInput: '',
+      dateValue: ' 请选择您的日期',
+      timeValue: ' 请选择您的时间'
+    })
   },
-
   onLoad: function() {
 
-  }
-
+  },
+  timePickerBindchange: function(e) {
+    this.setData({
+      timeValue: e.detail.value
+    })
+  },
+  datePickerBindchange: function(e) {
+    this.setData({
+      dateValue: e.detail.value
+    })
+  },
 })
