@@ -6,16 +6,18 @@
   background-color: #ffe0d6;
 }
 
-/* .toDo-item {
+/**Mission Block**/
+
+.userCellActive {
+  background-color: gray;
   overflow: hidden;
   padding: 30rpx;
-} */
+}
 
-/* .toDo-title {
-   color: blue; 
-  font-size: 50rpx;
-  line-height: 1;
-} */
+.userCell {
+  overflow: hidden;
+  padding: 30rpx;
+}
 
 .toDo-time {
   /* float: right; */
@@ -23,61 +25,41 @@
   font-size: 34rpx;
 }
 
-.toDo-descrip {
-  font-size: 34rpx;
-  color: #212121;
-  line-height: 1.2;
-}
-
-/* .btn-done {
-  overflow: hidden;
-  margin-left: 200rpx;
-  background-color: #9cc;
-} */
-
-.switch-done{
+.switch-done {
   overflow: hidden;
   float: right;
 }
 
-/* .btn-delete {
-  float: left;
-  background-color: #ffebcc;
-} */
-.haveLineThroughTitle{
+/**Mission Title**/
+
+.haveLineThrough-title {
   background-color: '#f6f6f6';
   text-decoration: line-through;
   font-size: 50rpx;
   line-height: 1;
 }
-.noLineThroughTitle{
+
+.noLineThrough-title {
   background-color: '#ffe0d6';
-  text-decoration: ''; 
+  text-decoration: '';
   font-size: 50rpx;
   line-height: 1;
 }
-.haveLineThrough{
+
+/**Mission Description**/
+
+.haveLineThrough-descrip {
   background-color: '#f6f6f6';
   text-decoration: line-through;
   font-size: 34rpx;
   color: #212121;
   line-height: 1.2;
 }
-.noLineThrough{
+
+.noLineThrough-descrip {
   background-color: '#ffe0d6';
-  text-decoration: ''; 
+  text-decoration: '';
   font-size: 34rpx;
   color: #212121;
   line-height: 1.2;
-}
-
-.userCellActive{
-  background-color: gray;
-  overflow: hidden;
-  padding: 30rpx;
-}
-
-.userCell{
-  overflow: hidden;
-  padding: 30rpx;
 }

@@ -10,53 +10,55 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    switchChecked: false,
     res: [],
-    isChecked : []
+    //isCheckedList is the list of switches statuses.
+    isCheckedList: []
   },
+  /** Event happens after change the switch **/
   switchChange: function(e) {
-    var isCheckedList = this.data.isChecked
+    var isCheckedList = this.data.isCheckedList
+    // Get the index - 0,1,2...
     var idx = e.target.dataset.id
+    // Get the data object id from database - "cdd972779c","7e33c203e4"...
     var id = e.target.id
+    // Get the switch status
     var status = e.detail.value
-    //console.log(status)
-    //console.log(id)
-    // this.setData({
-      
-    // })
     isCheckedList[idx] = e.detail.value
     this.setData({
-      isChecked: isCheckedList,
-      userCellId : id
+      isCheckedList: isCheckedList,
+      userCellId: id
     })
     this.editMissionStatus(id, status)
   },
+  /** Refresh Page when Change Tap **/
   onShow: function(e) {
     this.refreshPage()
   },
-  // onLoad: function(e) {
-  //   this.refreshPage()
-  // },
-  refreshPage:function(){
+  /** Initial Page **/
+  onLoad: function(e) {
+    this.refreshPage()
+  },
+  /** Render database data to the page **/
+  refreshPage: function() {
     var isCheckedList = []
     var tmp_res = []
     const query = Bmob.Query("missionTable");
     query.find().then(res => {
       tmp_res = res.reverse()
-      for (var i = 0; i < res.length;i++){
+      for (var i = 0; i < res.length; i++) {
         isCheckedList[i] = tmp_res[i]['status']
         console.log(isCheckedList[i])
-        }
+      }
       this.setData({
         res: tmp_res,
-        isChecked:isCheckedList
+        isCheckedList: isCheckedList
       })
     });
   },
-  editMissionStatus: function (id, status){
+  /** Motify the 'status' data according to the switch status and object ID **/
+  editMissionStatus: function(id, status) {
     const query = Bmob.Query('missionTable');
     query.get(id).then(res => {
-      //console.log(res)
       res.set('status', status)
       res.save()
     }).catch(err => {

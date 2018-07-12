@@ -12,10 +12,6 @@
   float: right;
 }
 
-.addNew-body {
-
-}
-
 .addNew-title {
   font-size: 50rpx;
   line-height: 2;

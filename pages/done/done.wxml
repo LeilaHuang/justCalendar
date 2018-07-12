@@ -1,3 +1,7 @@
+<!-- for later -->
+<!-- 1. click to see detail -->
+<!-- 2. button to delete -->
+
 <!--done.wxml-->
 <view class="done-list">
   <!-- listOne -->
@@ -7,10 +11,6 @@
       <view class="done-title">{{doneItem.title}}</view>
       <text class="done-descrip" selectable='true'>{{doneItem.description}}</text>
       <view class="done-time">{{doneItem.time}}</view>
-      <!-- for later -->
-      <!-- 1. click to see detail -->
-      <!-- 2. button to delete -->
     </view>
   </view>
-
 </view>

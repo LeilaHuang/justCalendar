@@ -11,14 +11,15 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-
-  onLoad: function () {
-    this.refreshPage() 
-  },
-  onShow: function () {
+  /** Refresh Page when Change Tap **/
+  onLoad: function() {
     this.refreshPage()
   },
-  refreshPage:function(){
+  /** Initial Page **/
+  onShow: function() {
+    this.refreshPage()
+  },
+  refreshPage: function() {
     const query = Bmob.Query("missionTable");
     query.equalTo("status", "==", true);
     query.find().then(res => {

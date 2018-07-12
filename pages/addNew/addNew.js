@@ -14,30 +14,35 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     title: "",
     descripition: "",
-    titleInput:"",
-    descripInput:""
+    titleInput: "",
+    descripInput: ""
   },
+  // Get title input value
   titleInputEvent: function(e) {
     this.setData({
       title: e.detail.value
     })
   },
+  // Get description input value
   desInputEvent: function(e) {
     this.setData({
       descripition: e.detail.value
     })
   },
+
   submitMission: function(e) {
+    // Get System Time
     var time = util.formatTime(new Date());
     this.setData({
       titleInput: '',
       descripInput: '',
     })
     const query = Bmob.Query('missionTable');
+    //Save a mission
     query.set("title", this.data.title)
     query.set("descripition", this.data.descripition)
     query.set("status", false)
-    query.set("time",time)
+    query.set("time", time)
     query.save().then(res => {
       console.log(res)
     }).catch(err => {

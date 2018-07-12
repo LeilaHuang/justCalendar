@@ -3,14 +3,15 @@
   1. click see detail
   2. button functions
   3. maybe change layout -->
-<view class="toDo-list" wx:for="{{res}}" wx:for-item="itemName" wx:for-index="idx">
+
+<view class="toDo-list" wx:for="{{res}}" wx:for-item="mission" wx:for-index="idx">
   <!-- listOne -->
-  <view class="{{isChecked[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}" > 
-    <view class="toDo-time">{{itemName.time}}</view>
-    <view class="{{isChecked[idx]?'haveLineThroughTitle':'noLineThroughTitle'}}">{{itemName.title}}</view>
-    <text class="{{isChecked[idx]?'haveLineThrough':'noLineThrough'}}">{{itemName.descripition}}</text>
+  <view class="{{isCheckedList[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}">
+    <view class="toDo-time">{{mission.time}}</view>
+    <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
+    <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
     <view class="toDo-footer">
-      <switch class="switch-done" checked="{{itemName.status}}" bindchange="switchChange" id = "{{itemName.objectId}}" data-id = "{{idx}}" color = "#1296db" />
+      <switch class="switch-done" checked="{{mission.status}}" bindchange="switchChange" id="{{mission.objectId}}" data-id="{{idx}}" color="#1296db" />
     </view>
   </view>
 </view>
