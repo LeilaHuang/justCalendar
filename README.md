@@ -1,11 +1,11 @@
 # justCalendar 就是日历
-###Introduction
+### Introduction
 
 this is whchat application. 
 
 这是一个微信小程序
 
-###Function
+### Function
 
 * To Do List (Today)
 * Add New Mission
