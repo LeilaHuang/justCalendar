@@ -1,8 +1,20 @@
 # justCalendar 就是日历
-just a calendar
+###Introduction
 
-Function:
+this is whchat application. 
 
-To Do List (Today)
+这是一个微信小程序
 
-Calendar
+###Function
+
+* To Do List (Today)
+* Add New Mission
+* Calendar
+
+### Dependency
+
+* Bmob cloud 后端云
+
+* http://link.zhihu.com/?target=https%3A//github.com/czcaiwj/calendar 极点日历插件
+
+  
