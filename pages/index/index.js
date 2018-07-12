@@ -1,5 +1,8 @@
 //iƒndex.js - toDo
 //获取应用实例
+// TODO
+// today task first (TODO first, DONE second)
+// according to time for other tasks 
 const app = getApp()
 var Bmob = require('../../SDK/hydrogen-js-sdk/src/lib/app.js');
 Bmob.initialize("4b4bdf19b95ce88a93502c4456ca63c7", "9fb8b4d1e82c6b3217a856d67f9a6744");
