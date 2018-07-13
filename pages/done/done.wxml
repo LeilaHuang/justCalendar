@@ -11,7 +11,7 @@
     <view class="done-body">
       <view class="done-title">{{doneItem.title}}</view>
       <text class="done-descrip" selectable='true'>{{doneItem.description}}</text>
-      <view class="done-time">{{doneItem.dueTime}}</view>
+      <view class="done-time">{{doneItem.dueDate+" "+doneItem.dueTime}}</view>
     </view>
   </view>
 </view>

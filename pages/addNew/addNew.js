@@ -1,5 +1,10 @@
 //addNew.js
 //获取应用实例
+/** TODO
+# About the picker, the Due Date and Due Time, shouldn't earlier than today.
+# The period of the due time should be 10 min, not 1 min.
+**/
+
 const app = getApp()
 
 var util = require('../../utils/util.js');
@@ -37,11 +42,13 @@ Page({
     const query = Bmob.Query('missionTable');
     // Save a mission
     // when compare use new Date(dueTime)
-    var dueTime = this.data.dateValue + " " + this.data.timeValue
+    var dueDate = this.data.dateValue
+    var dueTime = this.data.timeValue + ":00"
     query.set("title", this.data.title)
     query.set("descripition", this.data.descripition)
     query.set("status", false)
     query.set("time", time)
+    query.set("dueDate", dueDate)
     query.set("dueTime", dueTime)
     console.log(dueTime)
     query.save().then(res => {

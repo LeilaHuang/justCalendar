@@ -6,7 +6,7 @@
 <view class="toDo-list" wx:for="{{res}}" wx:for-item="mission" wx:for-index="idx">
   <!-- listOne -->
   <view class="{{isCheckedList[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}">
-    <view class="toDo-time">{{mission.dueTime}}</view>
+    <view class="toDo-time">{{mission.dueDate + " " + mission.dueTime}}</view>
     <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
     <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
     <view class="toDo-footer">
