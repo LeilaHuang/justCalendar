@@ -1,7 +1,7 @@
 # justCalendar 就是日历
 ### Introduction
 
-this is whchat application. 
+this is a whchat application. 
 
 这是一个微信小程序
 
