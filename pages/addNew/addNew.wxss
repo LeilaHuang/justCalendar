@@ -21,8 +21,8 @@
 .addNew-descrip {
   font-size: 35rpx;
   color: #212121;
-  line-height: 2;
-  margin: 20rpx 10rpx 120rpx 10rpx
+  line-height: 1.5;
+  margin: 20rpx 10rpx 150rpx 10rpx
 }
 
 .btn-create{
