@@ -1,10 +1,5 @@
 //addNew.js
 //获取应用实例
-/** TODO
-# About the picker, the Due Date and Due Time, shouldn't earlier than today.
-# The period of the due time should be 10 min, not 1 min.
-**/
-
 const app = getApp()
 
 var util = require('../../utils/util.js');
@@ -22,7 +17,141 @@ Page({
     titleInput: "",
     descripInput: "",
     dateValue: 'click to choose due date',
-    timeValue: 'due time'
+    timeValue: 'click to choose due time',
+    currentDate: '',
+    multiArray: [
+      ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+      ['00', '10', '20', '30', '40', '50']
+    ],
+    multiIndex: [0, 0],
+    objectMultiArray: [
+      [{
+          id: 0,
+          name: '00'
+        },
+        {
+          id: 1,
+          name: '01'
+        },
+        {
+          id: 2,
+          name: '02'
+        },
+        {
+          id: 3,
+          name: '03'
+        },
+        {
+          id: 4,
+          name: '04'
+        },
+        {
+          id: 5,
+          name: '05'
+        },
+        {
+          id: 6,
+          name: '06'
+        },
+        {
+          id: 7,
+          name: '07'
+        },
+        {
+          id: 8,
+          name: '08'
+        },
+        {
+          id: 9,
+          name: '09'
+        },
+        {
+          id: 10,
+          name: '10'
+        },
+        {
+          id: 11,
+          name: '11'
+        },
+        {
+          id: 12,
+          name: '12'
+        },
+        {
+          id: 13,
+          name: '13'
+        },
+        {
+          id: 14,
+          name: '14'
+        },
+        {
+          id: 15,
+          name: '15'
+        },
+        {
+          id: 16,
+          name: '16'
+        },
+        {
+          id: 17,
+          name: '17'
+        },
+        {
+          id: 18,
+          name: '18'
+        },
+        {
+          id: 19,
+          name: '19'
+        },
+        {
+          id: 20,
+          name: '20'
+        },
+        {
+          id: 21,
+          name: '21'
+        },
+        {
+          id: 22,
+          name: '22'
+        },
+        {
+          id: 23,
+          name: '23'
+        }
+      ],
+      [{
+          id: 0,
+          name: '00'
+        },
+        {
+          id: 1,
+          name: '10'
+        },
+        {
+          id: 2,
+          name: '20'
+        },
+        {
+          id: 3,
+          name: '30'
+        },
+        {
+          id: 3,
+          name: '30'
+        },
+        {
+          id: 4,
+          name: '40'
+        },
+        {
+          id: 5,
+          name: '50'
+        }
+      ]
+    ],
   },
   // Get title input value
   titleInputEvent: function(e) {
@@ -59,17 +188,26 @@ Page({
     this.setData({
       titleInput: '',
       descripInput: '',
-      dateValue: ' 请选择您的日期',
-      timeValue: ' 请选择您的时间'
+      dateValue: ' click to choose due date',
+      timeValue: ' click to choose due time'
     })
   },
   onLoad: function() {
-
+    var date = new Date()
+    var currentDate = date.getFullYear() + '-' + (Number(date.getMonth()) + 1) + '-' + date.getDate();
+    console.log(currentDate)
+    this.setData({
+      currentDate: currentDate,
+    })
   },
   timePickerBindchange: function(e) {
+    var hrIndex = e.detail.value[0]
+    var minIndex = e.detail.value[1]
+    var timeValue = this.data.multiArray[0][hrIndex] + ":" + this.data.multiArray[1][minIndex]
     this.setData({
-      timeValue: e.detail.value
+      timeValue: timeValue
     })
+    console.log(timeValue)
   },
   datePickerBindchange: function(e) {
     this.setData({

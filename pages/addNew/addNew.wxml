@@ -4,15 +4,15 @@
     # auto /n -->
 <view class="addNew-list">
   <form bindsubmit="submitMission">
-   <!-- 日期部分 -->
+    <!-- 日期部分 -->
     <view class="item">
-      <picker mode="date" value="{{dateValue}}" start="1999-01-01" end="2999-12-12" bindchange="datePickerBindchange">
+      <picker mode="date" value="{{dateValue}}" start="{{currentDate}}" end="2099-12-12" bindchange="datePickerBindchange">
         DUE DATE: {{dateValue}}
       </picker>
     </view>
     <!-- 时间部分 -->
     <view class="item">
-      <picker mode="time" value="{{timeValue}}" start="00:00" end="24:00" bindchange="timePickerBindchange">
+      <picker mode="multiSelector" value="{{timeValue}}" range="{{multiArray}}" custom-item="{{customItem}}" bindchange="timePickerBindchange">
         DUE TIME: {{timeValue}}
       </picker>
     </view>
@@ -25,7 +25,7 @@
       <button class="btn-cancel" bindtap="done">CANCEL</button>
       <button class="btn-create" formType="submit">CREATE</button>
     </view>
-   
+
   </form>
 
 
