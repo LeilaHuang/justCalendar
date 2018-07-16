@@ -10,9 +10,9 @@
         <view class="{{isCheckedList[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}">
           <view class="toDo-time">Due Date: {{mission.dueDate + " " + mission.dueTime}}</view>
           <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
-           <view style='overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'> 
+          <view style='overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>
             <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
-           </view> 
+          </view>
           <view class="toDo-footer">
             <switch class="switch-done" checked="{{mission.status}}" bindchange="switchChange" id="{{mission.objectId}}" data-id="{{idx}}" color="#1296db" />
           </view>
