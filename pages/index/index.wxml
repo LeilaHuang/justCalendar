@@ -2,15 +2,23 @@
 <!-- TODO
   # click see detail
   # maybe change layout -->
-
-<view class="toDo-list" wx:for="{{res}}" wx:for-item="mission" wx:for-index="idx">
-  <!-- listOne -->
-  <view class="{{isCheckedList[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}">
-    <view class="toDo-time">{{mission.dueDate + " " + mission.dueTime}}</view>
-    <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
-    <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
-    <view class="toDo-footer">
-      <switch class="switch-done" checked="{{mission.status}}" bindchange="switchChange" id="{{mission.objectId}}" data-id="{{idx}}" color="#1296db" />
+<view class="item-box">
+  <view class="items">
+    <view class="toDo-list" wx:for="{{res}}" wx:for-item="mission" wx:for-index="idx">
+      <!-- listOne -->
+      <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-id="{{idx}}" style="{{list[idx]}}" class="inner txt">
+        <view class="{{isCheckedList[idx]?'userCellActive':'userCell'}}" data-idx="{{idx}}">
+          <view class="toDo-time">Due Date: {{mission.dueDate + " " + mission.dueTime}}</view>
+          <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
+           <view style='overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'> 
+            <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
+           </view> 
+          <view class="toDo-footer">
+            <switch class="switch-done" checked="{{mission.status}}" bindchange="switchChange" id="{{mission.objectId}}" data-id="{{idx}}" color="#1296db" />
+          </view>
+        </view>
+      </view>
+      <view data-id="{{idx}}" bindtap="delItem" class="inner del" id="{{mission.objectId}}">删除</view>
     </view>
   </view>
 </view>
