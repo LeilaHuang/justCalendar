@@ -9,6 +9,7 @@ Bmob.initialize("4b4bdf19b95ce88a93502c4456ca63c7", "9fb8b4d1e82c6b3217a856d67f9
 
 Page({
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     // motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -18,7 +19,8 @@ Page({
     isCheckedList: [],
     //The inital width of delete button（rpx）
     delBtnWidth: 180,
-    list: []
+    list: [],
+    webUserData : {}
   },
   /** Event happens after change the switch **/
   switchChange: function(e) {
@@ -44,6 +46,28 @@ Page({
   onLoad: function(e) {
     this.refreshPage()
     this.initEleWidth()
+    var that = this
+    // 查看是否授权 
+    // leila
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              console.log(res.signature)
+              that.setData({
+                webUserData: res.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  bindGetUserInfo: function (e) {
+    console.log(e.detail.userInfo)
   },
   /** Render database data to the page **/
   refreshPage: function() {
@@ -81,6 +105,28 @@ Page({
         startX: e.touches[0].clientX
       });
     }
+  },
+  // leila
+  onLaunch: function () {
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          console.log(res.code)
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            data: {
+              js_code: res.code,
+              appid: wx2f34e2fc0833c0eb,
+              secret: b9ca917d31a3a5c31d595253a6475871,
+              grant_type: authorization_code
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
   },
   touchM: function(e) {
     if (e.touches.length == 1) {

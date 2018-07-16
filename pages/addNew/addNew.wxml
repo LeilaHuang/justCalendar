@@ -19,7 +19,7 @@
     <view class="addNew-body">
       <view class="addNew-time">{{time}}</view>
       <input class="addNew-title" placeholder="title" name="new_title" bindblur="titleInputEvent" value='{{titleInput}}'></input>
-      <input class="addNew-descrip" placeholder="toDoDescription" name="new_description" bindblur="desInputEvent" value='{{descripInput}}'></input>
+      <textarea class="addNew-descrip" placeholder="toDoDescription" name="new_description" bindblur="desInputEvent" value='{{descripInput}}'></textarea>
     </view>
     <view class="addNewFooter">
       <button class="btn-cancel" bindtap="done">CANCEL</button>
