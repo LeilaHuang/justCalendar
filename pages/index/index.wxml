@@ -9,7 +9,7 @@
 <!-- <open-data type="userAvatarUrl"></open-data>
 <open-data type="userNickName"></open-data> -->
 <!-- 需要使用 button 来授权登录 -->
-<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="{{visible?'visibleButton':'invisibleButton'}}">{{visible}}</button>
 <view wx:else>请升级微信版本</view>
 <view class="item-box">
   <view class="items">
@@ -20,7 +20,7 @@
           <view class="toDo-time">Due Date: {{mission.dueDate + " " + mission.dueTime}}</view>
           <view class="{{isCheckedList[idx]?'haveLineThrough-title':'noLineThrough-title'}}">{{mission.title}}</view>
           <view style='overflow: hidden;text-overflow: ellipsis;white-space: nowrap;'>
-            <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">{{mission.descripition}}</text>
+            <text class="{{isCheckedList[idx]?'haveLineThrough-descrip':'noLineThrough-descrip'}}">描述：{{mission.descripition}}</text>
           </view>
           <view class="toDo-footer">
             <switch class="switch-done" checked="{{mission.status}}" bindchange="switchChange" id="{{mission.objectId}}" data-id="{{idx}}" color="#1296db" />

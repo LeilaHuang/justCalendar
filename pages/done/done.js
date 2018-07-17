@@ -21,6 +21,9 @@ Page({
   },
   refreshPage: function() {
     const query = Bmob.Query("missionTable");
+    //const query = Bmob.Query("missionTable");
+    var username = app.globalData.bmobUserInfo['username']
+    query.equalTo("username", "==", username);
     query.equalTo("status", "==", true);
     query.find().then(res => {
       console.log(res)

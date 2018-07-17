@@ -39,6 +39,9 @@ Page({
     var dueDate = event.detail['year'] + "-" + month + "-" + event.detail['day']
     console.log(dueDate)
     const query = Bmob.Query("missionTable");
+    var username = app.globalData.bmobUserInfo['username']
+    console.log(username)
+    query.equalTo("username", "==", username);
     query.equalTo("dueDate", "==", dueDate);
     query.find().then(res => {
       console.log(res[0])

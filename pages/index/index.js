@@ -3,11 +3,6 @@
 // TODO
 // today task first (TODO first, DONE second)
 // according to time for other tasks
-
-const APP_ID = 'wx2f34e2fc0833c0eb';//输入小程序appid
-const APP_SECRET = 'b9ca917d31a3a5c31d595253a6475871';//输入小程序app_secret
-var OPEN_ID = ''//储存获取到openid
-var SESSION_KEY = ''//储存获取到session_key 
 const app = getApp()
 var Bmob = require('../../SDK/hydrogen-js-sdk/src/lib/app.js');
 Bmob.initialize("4b4bdf19b95ce88a93502c4456ca63c7", "9fb8b4d1e82c6b3217a856d67f9a6744");
@@ -25,7 +20,8 @@ Page({
     //The inital width of delete button（rpx）
     delBtnWidth: 180,
     list: [],
-    webUserData : {}
+    webUserData: {},
+    visible : true
   },
   /** Event happens after change the switch **/
   switchChange: function(e) {
@@ -51,51 +47,59 @@ Page({
   onLoad: function(e) {
     this.refreshPage()
     this.initEleWidth()
-    var that = this
-    // 查看是否授权 
-    // leila
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
-              console.log(res.signature)
-              that.setData({
-                webUserData: res.userInfo
-              })
-            }
-          })
-        }
-      }
-    })
+    console.log(app.globalData.bmobUserInfo)
   },
-  bindGetUserInfo: function (e) {
-    console.log(e.detail.userInfo)
+  bindGetUserInfo: function(e) {
+    Bmob.User.auth().then(res => {
+      app.globalData.bmobUserInfo = res
+      console.log('一键登陆成功')
+    }).catch(err => {
+      console.log(err)
+    });
+    this.refreshPage()
   },
   /** Render database data to the page **/
   refreshPage: function() {
+    if (app.globalData.bmobUserInfo == []) {
+      this.setData({
+        visible: true
+      })
+    } else {
+      this.setData({
+        visible: false
+      })
+    }
     var isCheckedList = []
     var list = []
     var tmp_res = []
-    const query = Bmob.Query("missionTable");
-    query.find().then(res => {
-      tmp_res = res.reverse()
-      for (var i = 0; i < res.length; i++) {
-        isCheckedList[i] = tmp_res[i]['status']
-        list[i] = ""
-      }
+    const query = Bmob.Query('missionTable');
+    var username = app.globalData.bmobUserInfo['username']
+    if (username == null) {
       this.setData({
-        res: tmp_res,
-        isCheckedList: isCheckedList,
-        list: list
+        res: []
       })
-    });
+    } else {
+      query.equalTo('username', "==", username);
+      //const query = Bmob.Query("missionTable");
+      query.find().then(res => {
+        tmp_res = res.reverse()
+        for (var i = 0; i < res.length; i++) {
+          isCheckedList[i] = tmp_res[i]['status']
+          list[i] = ""
+        }
+        this.setData({
+          res: tmp_res,
+          isCheckedList: isCheckedList,
+          list: list
+        })
+      });
+    }
   },
   /** Modify the 'status' data according to the switch status and object ID **/
   editMissionStatus: function(id, status) {
     const query = Bmob.Query('missionTable');
+    query.equalTo("username", "==", app.globalData.bmobUserInfo['username']);
+    //const query = Bmob.Query('missionTable');
     query.get(id).then(res => {
       res.set('status', status)
       res.save()
@@ -112,26 +116,26 @@ Page({
     }
   },
   // leila
-  onLaunch: function () {
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          console.log(res.code)
-          wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
-            data: {
-              js_code: res.code,
-              appid: wx2f34e2fc0833c0eb,
-              secret: b9ca917d31a3a5c31d595253a6475871,
-              grant_type: authorization_code
-            }
-          })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    });
+  onLaunch: function() {
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       //发起网络请求
+    //       console.log(res.code)
+    //       wx.request({
+    //         url: 'https://api.weixin.qq.com/sns/jscode2session',
+    //         data: {
+    //           js_code: res.code,
+    //           appid: wx2f34e2fc0833c0eb,
+    //           secret: b9ca917d31a3a5c31d595253a6475871,
+    //           grant_type: authorization_code
+    //         }
+    //       })
+    //     } else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+    //     }
+    //   }
+    // });
   },
   touchM: function(e) {
     if (e.touches.length == 1) {
@@ -221,6 +225,7 @@ Page({
   },
   delData: function(id) {
     const query = Bmob.Query('missionTable');
+    //const query = Bmob.Query('missionTable');
     query.destroy(id).then(res => {
       console.log(res)
     }).catch(err => {

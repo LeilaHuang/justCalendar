@@ -1,10 +1,26 @@
 //app.js
 App({
+  
   onLaunch: function () {
+    var Bmob = require('SDK/hydrogen-js-sdk/src/lib/app.js');
+    Bmob.initialize("4b4bdf19b95ce88a93502c4456ca63c7", "9fb8b4d1e82c6b3217a856d67f9a6744");
+    var that = this
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    //Bmob登录
+    Bmob.User.auth().then(res => {
+      console.log(res)
+      console.log('一键登陆成功')
+      this.globalData.bmobUserInfo = res
+      //console.log(this.globalData.bombUserInfo)
+    }).catch(err => {
+      console.log(err)
+    });
+
 
     // 登录
     wx.login({
@@ -34,6 +50,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    bmobUserInfo : []
   }
 })

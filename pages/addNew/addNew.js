@@ -168,7 +168,7 @@ Page({
   submitMission: function(e) {
     // Get System Time
     var time = util.formatTime(new Date());
-    const query = Bmob.Query('missionTable');
+    const query = Bmob.Query("missionTable");
     // Save a mission
     // when compare use new Date(dueTime)
     var dueDate = this.data.dateValue
@@ -179,6 +179,7 @@ Page({
     query.set("time", time)
     query.set("dueDate", dueDate)
     query.set("dueTime", dueTime)
+    query.set("username",app.globalData.bmobUserInfo['username'])
     console.log(dueTime)
     query.save().then(res => {
       console.log(res)
