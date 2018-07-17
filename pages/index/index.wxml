@@ -11,7 +11,6 @@
 <!-- 需要使用 button 来授权登录 -->
 <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 <view wx:else>请升级微信版本</view>
-
 <view class="item-box">
   <view class="items">
     <view class="toDo-list" wx:for="{{res}}" wx:for-item="mission" wx:for-index="idx">

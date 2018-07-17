@@ -2,7 +2,12 @@
 //获取应用实例
 // TODO
 // today task first (TODO first, DONE second)
-// according to time for other tasks 
+// according to time for other tasks
+
+const APP_ID = 'wx2f34e2fc0833c0eb';//输入小程序appid
+const APP_SECRET = 'b9ca917d31a3a5c31d595253a6475871';//输入小程序app_secret
+var OPEN_ID = ''//储存获取到openid
+var SESSION_KEY = ''//储存获取到session_key 
 const app = getApp()
 var Bmob = require('../../SDK/hydrogen-js-sdk/src/lib/app.js');
 Bmob.initialize("4b4bdf19b95ce88a93502c4456ca63c7", "9fb8b4d1e82c6b3217a856d67f9a6744");
